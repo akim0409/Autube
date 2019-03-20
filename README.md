@@ -34,16 +34,16 @@ Autube, a Youtube clone, is a
 
 
 
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 
 * Bonus: Number of plays
 * Bonus: Upvotes/downvotes for comments
 * Bonus: Channels and subscriptions
-
-
-
-
-
-
 
 
 
