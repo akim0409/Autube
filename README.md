@@ -1,4 +1,4 @@
-# Autube/ MVP List
+# AuTube/ MVP List
 Autube, a Youtube clone, is a 
 ### 1. Hosting on Heroku (03/26/2019)
 
