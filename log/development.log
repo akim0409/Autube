@@ -1,0 +1,327 @@
+Started GET "/" for ::1 at 2019-03-26 15:04:15 -0400
+
+PG::ConnectionBad - FATAL:  database "autube_development" does not exist
+:
+
+Started POST "/__better_errors/7a149da2acc66f97/variables" for ::1 at 2019-03-26 15:04:16 -0400
+Started GET "/" for ::1 at 2019-03-26 15:04:26 -0400
+
+PG::ConnectionBad - FATAL:  database "autube_development" does not exist
+:
+
+Started POST "/__better_errors/ccaa5f9d411a36de/variables" for ::1 at 2019-03-26 15:04:26 -0400
+  [1m[35m (417.5ms)[0m  [1m[35mCREATE DATABASE "autube_development" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (266.9ms)[0m  [1m[35mCREATE DATABASE "autube_test" ENCODING = 'unicode'[0m
+  ↳ bin/rails:9
+  [1m[35m (40.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  ↳ bin/rails:9
+  [1m[35m (4.1ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(3127203666724096680)[0m
+  ↳ bin/rails:9
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+Migrating to Users (20190326191638)
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[35m (4.6ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "username" character varying NOT NULL, "email" character varying NOT NULL, "password_digest" character varying NOT NULL, "session_token" character varying NOT NULL, "created_at" timestamp NOT NULL, "updated_at" timestamp NOT NULL)[0m
+  ↳ db/migrate/20190326191638_users.rb:3
+  [1m[35m (2.2ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_username" ON "users"  ("username")[0m
+  ↳ db/migrate/20190326191638_users.rb:10
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE UNIQUE INDEX  "index_users_on_session_token" ON "users"  ("session_token")[0m
+  ↳ db/migrate/20190326191638_users.rb:11
+  [1m[36mActiveRecord::SchemaMigration Create (0.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20190326191638"]]
+  ↳ bin/rails:9
+  [1m[35m (0.4ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  ↳ bin/rails:9
+  [1m[35m (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ bin/rails:9
+  [1m[36mActiveRecord::InternalMetadata Create (0.3ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2019-03-26 19:32:03.548966"], ["updated_at", "2019-03-26 19:32:03.548966"]]
+  ↳ bin/rails:9
+  [1m[35m (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_advisory_unlock(3127203666724096680)[0m
+  ↳ bin/rails:9
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ bin/rails:9
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/autumn/.rbenv/versions/2.5.1/bin/annotate:23
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/autumn/.rbenv/versions/2.5.1/bin/annotate:23
+Started GET "/" for ::1 at 2019-03-26 16:51:59 -0400
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (3.6ms)
+Completed 200 OK in 17ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:53:06 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:19 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 10ms (Views: 6.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:19 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:20 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:20 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:20 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 8ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:21 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 8ms (Views: 5.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:21 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:21 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 9ms (Views: 5.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:21 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 9ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:22 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.4ms)
+Completed 200 OK in 9ms (Views: 5.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:54:22 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.2ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:58:36 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.4ms)
+Completed 200 OK in 9ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:58:37 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 8ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:58:37 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.1ms)
+Completed 200 OK in 9ms (Views: 5.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:58:37 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.0ms)
+Completed 200 OK in 9ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:58:38 -0400
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/railties-5.2.2.1/lib/rails/templates/rails/welcome/index.html.erb (2.3ms)
+Completed 200 OK in 8ms (Views: 5.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:59:53 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Started GET "/" for ::1 at 2019-03-26 16:59:54 -0400
+Completed 200 OK in 1511ms (Views: 1509.4ms | ActiveRecord: 0.0ms)
+
+
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 16ms (Views: 14.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:59:55 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:59:56 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 16ms (Views: 14.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 16:59:57 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 17:00:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 17:00:23 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 24ms (Views: 21.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 17:00:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 18ms (Views: 16.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 17:00:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 17ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 17:00:24 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 18ms (Views: 15.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 17:01:39 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 19ms (Views: 17.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-26 17:45:55 -0400
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 1586ms (Views: 1583.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 06:55:22 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 102ms (Views: 97.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 15:53:01 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 45ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 17:29:36 -0400
+  [1m[35m (3.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 1555ms (Views: 1553.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 18:06:27 -0400
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/autumn/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.2.1/lib/active_record/log_subscriber.rb:98
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 1407ms (Views: 1405.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 18:08:02 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 423ms (Views: 421.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 18:32:48 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 19:07:06 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 409ms (Views: 407.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for ::1 at 2019-03-27 19:09:54 -0400
+Processing by StaticPagesController#root as HTML
+  Rendering static_pages/root.html.erb within layouts/application
+  Rendered static_pages/root.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 410ms (Views: 408.6ms | ActiveRecord: 0.0ms)
+
+
