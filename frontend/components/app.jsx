@@ -1,12 +1,19 @@
 import React from "react";
-import { Provider } from "react-redux";
+import { Route, Switch } from "react-router-dom";
+import { AuthRoute, ProtectedRoute } from "../util/route_util";
+import Main from "./main.jsx";
 
-const App = () => {
+import LoginFormContainer from "./session_form/login_form_container";
+import SignupFormContainer from "./session_form/signup_form_container";
+
+const App = () => (
   <div>
-    <header>
-      <h1>WELCOME TO AUTUBE</h1>
-    </header>
-  </div>;
-};
+    <Switch>
+      <AuthRoute path="/login" component={LoginFormContainer} />
+      <AuthRoute path="/signup" component={SignupFormContainer} />
+      <Route path="/" component={Main} />
+    </Switch>
+  </div>
+);
 
 export default App;
