@@ -1,5 +1,5 @@
 import { connect } from "react-redux";
-import { logout } from "../../actions/session_actions";
+import { logoutUser } from "../../actions/session_actions";
 import home from "./home";
 
 const msp = ({ session, entities: { users } }) => {
@@ -9,7 +9,7 @@ const msp = ({ session, entities: { users } }) => {
 };
 
 const mdp = dispatch => ({
-  logout: () => dispatch(logout())
+  logout: () => dispatch(logoutUser())
 });
 
 export default connect(

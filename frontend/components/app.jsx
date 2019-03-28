@@ -13,7 +13,7 @@ const App = () => (
       <Link to="/">
         <h1>AuTube</h1>
       </Link>
-      <HomeContainer />
+      {/* <HomeContainer /> */}
     </header>
     <Switch>
       {/* <Route path="/" component={NavBarContainer} /> */}
@@ -21,7 +21,7 @@ const App = () => (
       {/* <ProtectedRoute exact path="something like video upload page" component={VideoFormContainer}/> */}
       <AuthRoute exact path="/signup" component={SignUpFormContainer} />
       <AuthRoute exact path="/login" component={LogInFormContainer} />
-      <Route exact path="/" component={Home} />
+      <Route exact path="/" component={HomeContainer} />
     </Switch>
   </div>
 );

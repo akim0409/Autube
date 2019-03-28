@@ -17,7 +17,6 @@ const Main = ({ currentUser, logout }) => {
       <button onClick={logout}>Sign Out</button>
     </div>
   );
-
   return currentUser ? signout() : sessionLinks();
 };
 
