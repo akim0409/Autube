@@ -34,7 +34,6 @@ class User < ApplicationRecord
         user && user.is_password?(password) ? user : nil
     end
 
-    private
 
     def self.generate_session_token
         SecureRandom.urlsafe_base64

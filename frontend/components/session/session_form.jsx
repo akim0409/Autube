@@ -3,11 +3,7 @@ import React from "react";
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: "",
-      // email: "",
-      password: ""
-    };
+    this.state = this.user;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -19,32 +15,48 @@ class SessionForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processForm(this.state);
+    // this.props.processForm(this.state);
+    const user = Object.assign({}, this.state);
+    this.props.processForm(user).then(() => this.props.history.push("/"));
   }
 
-  // showErrors() {
-  //   return (
-  //     <ul>
-  //       {this.props.errors.map((error, i) => (
-  //         <li key={i}>{error}</li>
-  //       ))}
-  //     </ul>
-  //   );
-  // }
+  showErrors() {
+    return (
+      <ul>
+        {this.props.errors.map((error, i) => (
+          <li key={i}>{error}</li>
+        ))}
+      </ul>
+    );
+  }
+
   render() {
+    let emailContainer;
+    if (this.props.formType === "Sign Up") {
+      emailContainer = (
+        <label>
+          <input
+            type="text"
+            placeholder="Email"
+            onChange={this.handleInput("email")}
+          />
+        </label>
+      );
+    }
     return (
       <div className="login">
         <div className="login-header">
-          <h2>Sign up</h2>
+          <h2>{this.props.formType}</h2>
           <h3>to continue to AuTube</h3>
         </div>
-        <form onSubmit={this.handleSubmit}>
-          {/* {this.showErrors()} */}
+        <form>
+          {this.showErrors()}
+          {emailContainer}
           <label>
             <input
               type="text"
-              value={this.state.username}
-              placeholder="Username or Email"
+              // value={this.state.username}
+              placeholder="Username"
               onChange={this.handleInput("username")}
             />
           </label>
@@ -52,18 +64,23 @@ class SessionForm extends React.Component {
           <label>
             <input
               type="password"
-              value={this.state.password}
+              // value={this.state.password}
               placeholder="Password"
               onChange={this.handleInput("password")}
             />
           </label>
 
           <p>Don't have an account and too lazy to create one?</p>
-          <a href="">Sign in as a demo user</a>
+          <a>Sign in as a demo user</a>
 
           <div className="form-links">
             <a href="">Create account</a>
-            <input type="submit" className="signin-button" value="Sign in" />
+            <input
+              onClick={this.handleSubmit}
+              type="submit"
+              className="signin-button"
+              value={this.props.formType}
+            />
           </div>
         </form>
       </div>
