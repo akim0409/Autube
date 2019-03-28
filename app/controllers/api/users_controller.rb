@@ -2,8 +2,8 @@ class Api::UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      login!(@user)
-      render :show
+      login(@user)
+      render "api/users/show"
     else
       render json: @user.errors.full_messages, status: 401
     end
@@ -24,10 +24,10 @@ class Api::UsersController < ApplicationController
 #     @user = selected_user
 #   end
   
-  def index
-    @users = User.all
-    render :index
-  end
+  # def index
+  #   @users = User.all
+  #   render :index
+  # end
   
 #   def destroy
 #     @user = selected_user

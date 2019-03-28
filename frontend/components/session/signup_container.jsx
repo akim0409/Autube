@@ -1,15 +1,15 @@
 import { connect } from "react-redux";
-import { createNewUser } from "../../actions/session";
+import { createNewUser } from "../../actions/session_actions";
 import { Link } from "react-router-dom";
 import React from "react";
 import SessionForm from "./session_form";
 
 const msp = ({ errors }) => {
   return {
-    user: { username: "", password: "", email: "" }
-    // errors: errors.session,
-    // formType: "signup",
-    // navLink: <Link to="/login">Log in instead</Link>
+    user: { username: "", password: "", email: "" },
+    errors: errors.session,
+    formType: "Sign Up",
+    navLink: <Link to="/login">Log in instead</Link>
   };
 };
 const mdp = dispatch => {
