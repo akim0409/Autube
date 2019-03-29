@@ -1,7 +1,6 @@
 import React from "react";
 import Home from "./home/home";
 import NavBarContainer from "./nav_bar/nav_bar_container";
-// import HomeContainer from "./home/home_container";
 import SignUpFormContainer from "./session/signup_container";
 import LogInFormContainer from "./session/session_form_container";
 import { Route, Switch } from "react-router-dom";
@@ -9,7 +8,6 @@ import { AuthRoute, ProtectedRoute } from "../util/route_utils";
 
 const App = () => (
   <div>
-    <header>{/* <HomeContainer /> */}</header>
     <Route path="/" component={NavBarContainer} />
     <Switch>
       {/* <Route path="videos/:videoId" component={VideoShowContainer} /> */}
