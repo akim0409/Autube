@@ -1,23 +1,40 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default ({ currentUser, logout }) => {
-  const display = currentUser ? (
-    <div>
-      <h3>{currentUser.username}</h3>
-      <button onClick={logout}>Logout</button>
+export default ({ currentUser, logout }) => (
+  <nav className="navbar">
+    <div className="nav-left">
+      <div className="nav-logo">
+        {/* <img src={require("../images/autube-logo.svg")} /> */}
+      </div>
     </div>
-  ) : (
-    <div>
-      <Link to="/signup">Sign Up</Link>
-      &nbsp;/&nbsp;
-      <Link to="/login">Sign In</Link>
+
+    <div className="search-container">
+      <form className="search-form">
+        <div className="search-box">
+          <input type="text" placeholder="Search" />
+        </div>
+        <button type="submit" className="search-button">
+          <i className="fa fa-search" />
+        </button>
+      </form>
     </div>
-  );
-  return (
-    <header>
-      <Link to="/">AuTube</Link>
-      <div>{display}</div>
-    </header>
-  );
-};
+
+    <div className="nav-right">
+      <a href="" className="nav-dropdown">
+        <i className="fas fa-video" />
+      </a>
+      <div>
+        {currentUser ? (
+          <button onClick={logout}>Sign out</button>
+        ) : (
+          <>
+            <Link to="/login" className="signin-link">
+              sign in
+            </Link>
+          </>
+        )}
+      </div>
+    </div>
+  </nav>
+);

@@ -1,0 +1,71 @@
+.navbar {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  height: 56px;
+  padding: 2em 2.5em;
+  font-size: 16px;
+  background-color: #fff;
+  box-shadow: 0px 1px 10px #e8e8e8;
+}
+
+.nav-logo {
+  width: 100px;
+}
+
+.nav-logo img {
+  width: 100%;
+}
+
+.nav-dropdown img {
+  width: 24px;
+}
+
+.signin-link {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.search-container {
+  border-radius: 2px;
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  max-width: 640px;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.search-form .search-box {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 2px 0 0 2px;
+  box-shadow: inset 0 1px 2px #eee;
+}
+
+.search-form .search-box input {
+  border: 0;
+  width: 100%;
+  outline: none;
+}
+
+.search-form .search-button {
+  cursor: pointer;
+  width: 65px;
+  border: 1px solid #ccc;
+  background-color: #f8f8f8;
+  border-radius: 0 2px 2px 0;
+  border-left: 0;
+  margin: 0;
+}
+
+.nav-dropdown {
+  margin-right: 2.5em;
+  color: #606060;
+}
