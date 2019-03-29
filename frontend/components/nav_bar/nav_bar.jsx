@@ -16,6 +16,7 @@ export default ({ currentUser, logout }) => {
   );
   return (
     <header>
+      <Link to="/">AuTube</Link>
       <div>{display}</div>
     </header>
   );
