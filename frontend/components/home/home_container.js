@@ -1,18 +1,18 @@
-import { connect } from "react-redux";
-import { logoutUser } from "../../actions/session_actions";
-import home from "./home";
+// import { connect } from "react-redux";
+// import { logoutUser } from "../../actions/session_actions";
+// import home from "./home";
 
-const msp = ({ session, entities: { users } }) => {
-  return {
-    currentUser: users[session.id]
-  };
-};
+// const msp = ({ session, entities: { users } }) => {
+//   return {
+//     currentUser: users[session.id]
+//   };
+// };
 
-const mdp = dispatch => ({
-  logout: () => dispatch(logoutUser())
-});
+// const mdp = dispatch => ({
+//   logout: () => dispatch(logoutUser())
+// });
 
-export default connect(
-  msp,
-  mdp
-)(home);
+// export default connect(
+//   msp,
+//   mdp
+// )(home);

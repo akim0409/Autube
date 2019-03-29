@@ -11,8 +11,8 @@ const msp = ({ errors }) => {
       password: ""
     },
     errors: errors.session,
-    formType: "Sign In",
-    navLink: <Link to="/signup">Sign up instead</Link>
+    formType: "Sign in",
+    navLink: <Link to="/signup">Create account</Link>
   };
 };
 const mdp = dispatch => {

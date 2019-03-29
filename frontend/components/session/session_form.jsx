@@ -1,21 +1,21 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 class SessionForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.user;
+    this.state = this.props.user;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   handleInput(type) {
     return e => {
-      this.setState({ [type]: e.target.value });
+      this.setState({ [type]: e.currentTarget.value });
     };
   }
 
   handleSubmit(e) {
     e.preventDefault();
-    // this.props.processForm(this.state);
     const user = Object.assign({}, this.state);
     this.props.processForm(user).then(() => this.props.history.push("/"));
   }
@@ -32,7 +32,7 @@ class SessionForm extends React.Component {
 
   render() {
     let emailContainer;
-    if (this.props.formType === "Sign Up") {
+    if (this.props.formType === "Sign up") {
       emailContainer = (
         <label>
           <input
@@ -43,6 +43,14 @@ class SessionForm extends React.Component {
         </label>
       );
     }
+
+    let createAccount;
+    if (this.props.formType === "Sign in") {
+      createAccount = this.props.navLink;
+    } else {
+      createAccount = this.props.navLink;
+    }
+
     return (
       <div className="login">
         <div className="login-header">
@@ -74,7 +82,8 @@ class SessionForm extends React.Component {
           <a>Sign in as a demo user</a>
 
           <div className="form-links">
-            <a href="">Create account</a>
+            {createAccount}
+            {/* <a href="">Create account</a> */}
             <input
               onClick={this.handleSubmit}
               type="submit"
@@ -88,4 +97,4 @@ class SessionForm extends React.Component {
   }
 }
 
-export default SessionForm;
+export default withRouter(SessionForm);
