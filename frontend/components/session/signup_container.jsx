@@ -8,8 +8,8 @@ const msp = ({ errors }) => {
   return {
     user: { username: "", password: "", email: "" },
     errors: errors.session,
-    formType: "Sign Up",
-    navLink: <Link to="/login">Log in instead</Link>
+    formType: "Sign up",
+    navLink: <Link to="/login">Sign in instead</Link>
   };
 };
 const mdp = dispatch => {
