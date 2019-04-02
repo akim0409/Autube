@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
 
 * {
@@ -20,7 +21,9 @@
 
 body {
   font-family: "Roboto", sans-serif;
+  /* background-color: white; */
   background-color: #fafafa;
+  margin: 0;
 }
 
 a {

@@ -17,6 +17,13 @@ const msp = ({ errors }) => {
 };
 const mdp = dispatch => {
   return {
+    demoLogin: () =>
+      dispatch(
+        loginUser({
+          username: "DemoUser",
+          password: "password"
+        })
+      ),
     processForm: formUser => dispatch(loginUser(formUser)),
     clearErrors: () => dispatch(clearErrors())
   };
