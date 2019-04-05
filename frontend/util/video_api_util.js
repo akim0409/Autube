@@ -1,21 +1,21 @@
 export const fetchVideos = () => {
   return $.ajax({
     method: "GET",
-    url: "api/videos"
+    url: "/api/videos"
   });
 };
 
 export const fetchVideo = id => {
   return $.ajax({
     method: "GET",
-    url: `api/videos/${id}`
+    url: `/api/videos/${id}`
   });
 };
 
 export const createVideo = video => {
   return $.ajax({
     method: "POST",
-    url: "api/videos",
+    url: "/api/videos",
     data: video,
     contentType: false,
     processData: false
@@ -25,7 +25,7 @@ export const createVideo = video => {
 export const updateVideo = video => {
   return $.ajax({
     method: "PATCH",
-    url: `api/videos/${video.id}`,
+    url: `/api/videos/${video.id}`,
     data: video,
     contentType: false,
     processData: false
@@ -35,6 +35,6 @@ export const updateVideo = video => {
 export const deleteVideo = id => {
   return $.ajax({
     method: "DELETE",
-    url: `api/videos/${id}`
+    url: `/api/videos/${id}`
   });
 };

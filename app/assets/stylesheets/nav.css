@@ -7,10 +7,12 @@
   font-size: 12px;
   background-color: #fff;
   box-shadow: 0px 1px 10px #e8e8e8;
+  z-index: 50;
 }
 
 .nav-logo {
   width: 100px;
+  margin-left: 1em;
 }
 
 .nav-logo img {
@@ -21,9 +23,22 @@
   width: 24px;
 }
 
+.nav-left {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .nav-right {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-icon {
+  margin-left: 2.5em;
 }
 
 .signin-link {
@@ -73,4 +88,79 @@
 .nav-dropdown {
   margin-right: 2.5em;
   color: #606060;
+}
+
+.icon-user-circle {
+  position: relative;
+}
+
+.dropbtn {
+  cursor: pointer;
+}
+
+.icon-user-circle-content {
+  position: absolute;
+  background-color: white;
+  overflow: auto;
+  box-shadow: 0px 6px 6px 0px #888888;
+  top: 38px;
+  right: 0;
+  z-index: 1;
+  margin-right: 5px;
+  min-width: 250px;
+}
+
+.icon-user-circle-content .dropdown-link {
+  margin: 0.5em;
+}
+
+.icon-user-circle-content a {
+  color: #333;
+  padding: 14px;
+  text-decoration: none;
+  display: block;
+}
+.icon-user-circle-content a:hover {
+  background: rgb(226, 226, 226);
+}
+
+.icon-user-circle-content i {
+  margin-right: 1em;
+}
+
+.show {
+  display: block !important;
+}
+
+.dropdown-header {
+  display: flex;
+  flex-direction: row;
+  padding: 1em;
+  background-color: #eee;
+}
+
+.dropdown-header .user-photo {
+  margin-right: 1em;
+  background-color: #0da1ec;
+  border-radius: 50px;
+  height: 35px;
+  width: 35px;
+}
+
+.dropdown-header .user-info p {
+  margin-top: 0;
+  margin-bottom: 4px;
+}
+
+.dropdown-header .user-name {
+  font-weight: 700;
+}
+
+#myDropdown {
+  left: 0;
+  top: 0;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: none;
 }

@@ -1,6 +1,8 @@
 class Api::VideosController < ApplicationController
     def index
-        @videos = Video.includes(:user).limit(5)
+        @videos = Video.limit(5)
+        # @videos = Video.all
+        render :index
     end
 
     def create
@@ -19,7 +21,7 @@ class Api::VideosController < ApplicationController
     end
 
     def show
-        @video = Video.includes(:user).find-by(id: params[:id])
+        @video = Video.includes(:user).find_by(id: params[:id])
         if @video
             render :show
         else
@@ -35,6 +37,7 @@ class Api::VideosController < ApplicationController
 
     private
     def video_params
-        params.require(:video).permit(:title, :description, :user_id, :url)
+        params.require(:video).permit(:title)
+        # params.require(:video).permit(:title, :description, :user_id, :url)
     end
 end

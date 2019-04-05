@@ -7,4 +7,12 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 demo = User.create!(username: "DemoUser", email:"demo@gmail.com", password: "password")
+user_2 = User.create!(username: "movieLover", email:"movielover@gmail.com", password: "password")
+
+# v1 = Video.create!(title: ,user_id: , url:,) 
+# v2 = Video.create!(title: ,user_id: , url:,) 
+# v3 = Video.create!(title: ,user_id: , url:,) 
+# v4 = Video.create!(title: ,user_id: , url:,)
+# v5 = Video.create!(title: ,user_id: , url:,)
+
 

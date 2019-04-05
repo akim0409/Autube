@@ -26,39 +26,70 @@ class SessionForm extends React.Component {
     this.props.demoLogin();
   }
 
-  showErrors() {
-    return (
-      <ul>
-        {this.props.errors.map((error, i) => (
-          <li key={i}>{error}</li>
-        ))}
-      </ul>
-    );
-  }
+  // showErrors() {
+  //   return (
+  //     <ul>
+  //       {this.props.errors.map((error, i) => (
+  //         <li key={i}>{error}</li>
+  //       ))}
+  //     </ul>
+  //   );
+  // }
 
   componentWillUnmount() {
     this.props.clearErrors();
   }
 
   render() {
+    let signInErr = "";
+    let emailErr = "";
+    let pwErr = "";
+    let nameErr = "";
+    this.props.errors.forEach(err => {
+      switch (err.split(" ")[0]) {
+        case "Username": {
+          nameErr = "Enter username";
+          break;
+        }
+        case "Password": {
+          pwErr = err;
+          break;
+        }
+        case "Email": {
+          emailErr = "Enter email";
+          break;
+        }
+        case "Invalid": {
+          signInErr = err;
+          break;
+        }
+      }
+    });
+
     let emailContainer;
     if (this.props.formType === "Sign up") {
       emailContainer = (
         <>
-          <div className="name-row">
+          <div className="input-row">
             <input
-              className="input-firstname"
+              className="input space-input"
               type="text"
               placeholder="First name"
             />
-            <input type="text" placeholder="Last name" />
+            <input className="input" type="text" placeholder="Last name" />
           </div>
-          <label>
+          <label className={emailErr ? "err-label" : ""}>
             <input
+              className={emailErr ? "input err-input" : "input"}
               type="text"
               placeholder="Your email address"
               onChange={this.handleInput("email")}
             />
+            <i
+              id="err"
+              className={emailErr ? "fas fa-exclamation-circle error-icon" : ""}
+            />
+            {emailErr}
           </label>
         </>
       );
@@ -67,8 +98,8 @@ class SessionForm extends React.Component {
     let passwordConfirm;
     if (this.props.formType === "Sign up") {
       passwordConfirm = (
-        <label htmlFor="">
-          <input type="password" placeholder="Confirm" />
+        <label htmlFor="" className="space-input">
+          <input className="input" type="password" placeholder="Confirm" />
         </label>
       );
     }
@@ -80,35 +111,90 @@ class SessionForm extends React.Component {
       createAccount = this.props.navLink;
     }
 
+    let sessionName;
+    if (this.props.formType === "Sign in") {
+      sessionName = <h2>Sign in</h2>;
+    } else {
+      sessionName = <h2>Create your Autube Account</h2>;
+    }
+
     return (
       <div className="login-page">
         <div className="login">
-          <div className="login-header">
-            <h2>{this.props.formType}</h2>
-            <h3>to continue to AuTube</h3>
+          <a href="/">
+            <img
+              className={
+                this.props.formType === "Sign in" ? "logo" : "logo sign-up-logo"
+              }
+            />
+            <img className="logo" src={window.logo} />
+          </a>
+          <div
+            className={
+              this.props.formType === "Sign in"
+                ? "login-header"
+                : "signup-header"
+            }
+          >
+            {sessionName}
+            <h4>to continue to AuTube</h4>
           </div>
           <form>
-            {this.showErrors()}
             {emailContainer}
-            <label>
+            <label className={signInErr || nameErr ? "err-label" : ""}>
               <input
+                className={signInErr || nameErr ? "input err-input" : "input"}
                 type="text"
                 placeholder="Username"
                 onChange={this.handleInput("username")}
               />
-            </label>
-            <label>
-              <input
-                type="password"
-                placeholder="Password"
-                onChange={this.handleInput("password")}
+              <i
+                id="err"
+                className={
+                  signInErr || nameErr
+                    ? "fas fa-exclamation-circle error-icon"
+                    : ""
+                }
               />
+              {signInErr}
+              {nameErr}
             </label>
-            {passwordConfirm}
-            <p className="demo-text">
-              Don't have an account and too lazy to create one?
-            </p>
-            <a onClick={this.handleDemoLogin}>Sign in as a guest</a>
+
+            <div
+              className={this.props.formType === "Sign up" ? "input-row" : ""}
+            >
+              <label
+                className={pwErr ? "err-label space-input" : " space-input"}
+              >
+                <input
+                  className={signInErr || pwErr ? "input err-input" : "input"}
+                  type="password"
+                  placeholder="Password"
+                  onChange={this.handleInput("password")}
+                />
+                <i
+                  id="err"
+                  className={
+                    pwErr ? "fas fa-exclamation-circle error-icon" : ""
+                  }
+                />
+                {pwErr}
+              </label>
+              {passwordConfirm}
+              <i
+                className={
+                  this.props.formType === "Sign up" ? "far fa-eye-slash" : ""
+                }
+              />
+            </div>
+            <div className="demo-controls">
+              <p className="demo-text">
+                Don't have an account and too lazy to create one?
+              </p>
+              <a className="demo-btn" onClick={this.handleDemoLogin}>
+                Sign in as a guest
+              </a>
+            </div>
 
             <div className="form-links">
               {createAccount}
