@@ -5,20 +5,20 @@ class Api::VideosController < ApplicationController
         render :index
     end
 
-    def create
-        if video_params[:url].nil? || video_params[:title].nil?
-            render json: ['All fields must be filled out'], status: 422
-        else
-            @video = Video.new(video_params)
-            @video.user_id = current_user.id
+    # def create
+    #     if video_params[:url].nil? || video_params[:title].nil?
+    #         render json: ['All fields must be filled out'], status: 422
+    #     else
+    #         @video = Video.new(video_params)
+    #         @video.user_id = current_user.id
 
-            if @video.save
-                render :show
-            else
-                render json: @video.errors.full_messages, status: 422
-            end
-        end
-    end
+    #         if @video.save
+    #             render :show
+    #         else
+    #             render json: @video.errors.full_messages, status: 422
+    #         end
+    #     end
+    # end
 
     def show
         @video = Video.includes(:user).find_by(id: params[:id])

@@ -6,13 +6,6 @@ import VideoShowContainer from "./videos/video_show_container";
 import { Route, Switch } from "react-router-dom";
 import { AuthRoute, ProtectedRoute } from "../util/route_utils";
 
-//not needed
-// import { library } from "@fortawesome/fontawesome-svg-core";
-// import { fas } from "@fortawesome/free-solid-svg-icons";
-// import { far } from "@fortawesome/free-regular-svg-icons";
-
-// library.add(fas, far);
-
 const App = () => (
   <div>
     <Switch>
