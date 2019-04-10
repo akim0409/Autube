@@ -11,7 +11,7 @@ const App = () => (
     <Switch>
       {/* <Route path="/videos/:videoId" component={VideoShowContainer} /> */}
       <Route path="/videos/:videoId" component={VideoShowContainer} />
-      {/* <ProtectedRoute exact path="something like video upload page" component={VideoFormContainer}/> */}
+      {/* <ProtectedRoute exact path="/home/videos/create" component={VideoFormContainer}/> */}
       <AuthRoute path="/signup" component={SignUpFormContainer} />
       <AuthRoute path="/login" component={LogInFormContainer} />
       <Route path="/" component={Home} />

@@ -23,7 +23,11 @@ class VideoShow extends React.Component {
           <div className="video-column">
             <section className="video-main">
               <div className="video">
-                <video autoPlay controls src={this.props.video.videoUrl} />
+                <video
+                  // autoPlay
+                  controls
+                  src={this.props.video.videoUrl}
+                />
               </div>
               <div className="video-details">
                 <h3 className="video-main-title">{this.props.video.title}</h3>

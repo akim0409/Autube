@@ -1,11 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import VideoFormContainer from "../videos/video_form_container";
 
 class navBar extends React.Component {
   constructor(props) {
     super(props);
     this.myFunction = this.myFunction.bind(this);
+    this.myVideoFunction = this.myVideoFunction.bind(this);
     this.onclick = this.onclick.bind(this);
+    this.videoClick = this.videoClick.bind(this);
   }
   //same as the one below
   // myFunction() {
@@ -15,6 +18,12 @@ class navBar extends React.Component {
   myFunction() {
     return e => {
       $("#myDropdown").toggleClass("show");
+    };
+  }
+
+  myVideoFunction() {
+    return e => {
+      $("#videoDrop").toggleClass("show");
     };
   }
 
@@ -42,6 +51,14 @@ class navBar extends React.Component {
     };
   }
 
+  videoClick() {
+    return e => {
+      if (e.target === e.currentTarget) {
+        $("videoDrop").toggleClass("show");
+      }
+    };
+  }
+
   render() {
     return (
       <nav className="navbar">
@@ -64,10 +81,26 @@ class navBar extends React.Component {
               <i className="fas fa-search" />
             </button>
           </form>
+          <VideoFormContainer />
         </div>
 
         <div className="nav-right">
-          <i className="fa fa-video fa-lg nav-icon" />
+          {/* <div>
+            <i
+              onClick={this.myFunction()}
+              className="fa fa-video fa-lg nav-icon"
+            />
+            <div id="videoDrop" onClick={this.videoClick()}>
+              <div className="icon-user-circle-content">
+                <Link to="/" className="dropdown-link">
+                  <i className="fab fa-youtube" />
+                  <span>Upload video</span>
+                </Link>
+              </div>
+            </div>
+          </div> */}
+
+          {/* this line is just dummy */}
           <i className="fas fa-ellipsis-v nav-icon" />
 
           <div>
@@ -75,15 +108,10 @@ class navBar extends React.Component {
               <div className="icon-user-circle">
                 <i
                   onClick={this.myFunction()}
-                  // className="far fa-user-circle fa-2x dropbtn"
                   className="fas fa-user-astronaut fa-lg dropbtn nav-icon"
                 />
 
-                <div
-                  id="myDropdown"
-                  // className="hidden"
-                  onClick={this.onclick()}
-                >
+                <div id="myDropdown" onClick={this.onclick()}>
                   <div className="icon-user-circle-content">
                     <div className="dropdown-header">
                       <div className="user-photo" />
@@ -126,57 +154,3 @@ class navBar extends React.Component {
 }
 
 export default navBar;
-
-// export default ({ currentUser, logout }) => (
-//   <nav className="navbar">
-//     <div className="nav-left">
-//       <div className="nav-logo">
-//         <a href="/">
-//           <img src={window.logo} />
-//         </a>
-//       </div>
-//     </div>
-
-//     <div className="search-container">
-//       <form className="search-form">
-//         <div className="search-box">
-//           <input type="text" placeholder="Search" />
-//         </div>
-//         <button type="submit" className="search-button">
-//           <FontAwesomeIcon icon="search" />
-//         </button>
-//       </form>
-//     </div>
-
-//     <div className="nav-right">
-//       <i className="fa fa-video" />
-//       <a href="" className="nav-dropdown">
-//         <FontAwesomeIcon icon="video" />
-//       </a>
-//       <div>
-//         {currentUser ? (
-//           <div className="icon-user-circle">
-//             <FontAwesomeIcon
-//               onClick={smyFunction()}
-//               // class="dropbtn"
-//               icon="user-circle"
-//             />
-//             <div id="myDropdown" className="icon-user-circle-content">
-//               <a href="#">{currentUser.email}</a>
-//               <a href="#">My channel</a>
-//               <Link to="/" onClick={logout}>
-//                 Sign out
-//               </Link>
-//             </div>
-//           </div>
-//         ) : (
-//           <>
-//             <Link to="/login" className="signin-link">
-//               sign in
-//             </Link>
-//           </>
-//         )}
-//       </div>
-//     </div>
-//   </nav>
-// );

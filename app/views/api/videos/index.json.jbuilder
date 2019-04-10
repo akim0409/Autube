@@ -4,7 +4,7 @@ json.videos do
       json.extract! video, :id, :title
       json.videoUrl url_for(video.video)
       json.imageUrl url_for(video.image)
-      json.uploadDate "#{ video.created_at } ago"
+      json.createdAt "#{ video.created_at } ago"
     end
   end
 end
