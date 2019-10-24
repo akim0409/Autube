@@ -13,6 +13,7 @@ class VidoeForm extends React.Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleInput = this.handleInput.bind(this);
+    this.handleImage = this.handleImage.bind(this);
     // this.handleFile = this.handleFile.bind(this);
   }
 
@@ -39,10 +40,39 @@ class VidoeForm extends React.Component {
 
   handleFile(field) {
     return e => {
+      debugger;
       this.setState({ [field]: e.currentTarget.files[0], uploaded: true });
     };
   }
+  // handleFile(e) {
+  //   const reader = new FileReader();
+  //   const file = e.currentTarget.files[0];
+  //   reader.onloadend = () =>
+  //     this.setState({ videoUrl: reader.result, videoFile: file });
+  //   if (file) {
+  //     reader.readAsDataURL(file);
+  //   } else {
+  //     this.setState({ videoUrl: "", videoFile: null });
+  //   }
+  // }
 
+  handleImage(e) {
+    debugger;
+    const reader = new FileReader();
+    const file = e.currentTarget.files[0];
+    reader.onloadend = () =>
+      this.setState({
+        imageUrl: reader.result,
+        imageFile: file,
+        uploaded: true
+      });
+
+    if (file) {
+      reader.readAsDataURL(file);
+    } else {
+      this.setState({ imageUrl: "", imageFile: null });
+    }
+  }
   handleInput(field) {
     return e => {
       this.setState({ [field]: e.currentTarget.value });
@@ -55,7 +85,7 @@ class VidoeForm extends React.Component {
     formData.append("video[title]", this.state.title);
     formData.append("video[description]", this.state.description);
     formData.append("video[user_id]", this.props.currentUser.id);
-    formData.append("video[image]", this.state.imageUrl);
+    formData.append("video[image]", this.state.imageFile);
     if (this.state.videoFile) {
       formData.append("video[video]", this.state.videoFile);
     }
@@ -79,7 +109,11 @@ class VidoeForm extends React.Component {
           <div>
             <label htmlFor="files">
               <div>Change Video</div>
-              <input type="file" onChange={this.handleFile} id="files" />
+              <input
+                type="file"
+                onChange={this.handleFile("videoFile")}
+                id="files"
+              />
             </label>
           </div>
         </div>
@@ -99,11 +133,7 @@ class VidoeForm extends React.Component {
             value={this.state.description}
             onChange={this.handleInput("description")}
           />
-          <input
-            type="file"
-            onChange={this.handleFile("imageUrl")}
-            id="files"
-          />
+          <input type="file" onChange={this.handleImage} id="files" />
           <button>Post a video</button>
         </form>
       </div>

@@ -6,13 +6,13 @@ class Api::VideosController < ApplicationController
     end
 
     def create
-        if video_params[:url].nil? || video_params[:title].nil?
+        if video_params[:title].nil?
 
             render json: ['All fields must be filled out'], status: 422
         else
             @video = Video.new(video_params)
             @video.user_id = current_user.id
-
+            debugger
             if @video.save
                 render :show
             else
@@ -39,6 +39,6 @@ class Api::VideosController < ApplicationController
 
     private
     def video_params
-        params.require(:video).permit(:title, :description, :user_id, :url)
+        params.require(:video).permit(:title, :description, :user_id, :video, :image)
     end
 end
